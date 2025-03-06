@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/header";
 import {Inter} from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider";
+import { dark } from "@clerk/themes";
 
 export const metadata = {
   title: "Sensai - AI Career Coach",
@@ -12,7 +13,9 @@ const inter = Inter({subsets:["latin"]});
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{
+      baseTheme:dark
+    }}>
        <html lang="en" suppressHydrationWarning>
          <body
            className={`${inter.className}`}
